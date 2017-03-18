@@ -39,13 +39,31 @@ private SessionFactory sessionFactory;
 	}
 
 	public boolean save(User user) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			sessionFactory.getCurrentSession().save(user);
+			return true;
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public User getUser(String id)
+	{
+		 return  (User)getSession().get(User.class, id);
 	}
 
 	public boolean update(User user) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			sessionFactory.getCurrentSession().update(user);
+			return true;
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+			return false;
+		}
 	}
 
 	public boolean delete(String id) {
@@ -58,9 +76,9 @@ private SessionFactory sessionFactory;
 		return false;
 	}
 	
-	public boolean validate(String user_id, String password)
+	public boolean validate(String id, String password)
 	{
-		String hql="from User where user_id='"+user_id+"' and password='"+password+"'";
+		String hql="from User where id='"+id+"' and password='"+password+"'";
 		if(getSession().createQuery(hql).uniqueResult()==null)
 		{
 			return false;

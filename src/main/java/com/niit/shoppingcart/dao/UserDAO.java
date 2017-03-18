@@ -18,8 +18,8 @@ public interface UserDAO {
 	
 	public boolean delete(User user);
 	
-	public boolean validate(String user_id , String password);
+	public boolean validate(String id , String password);
 
-	
+	public User getUser(String id);
 	 
 }

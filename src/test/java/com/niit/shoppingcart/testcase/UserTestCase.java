@@ -39,19 +39,32 @@ public class UserTestCase {
 	public void validateTestCase()
 	{
 		boolean flag=userDAO.validate("niit", "123");
-		
-	  
-		
-		
-		
-		
-		
 		Assert.assertEquals("validateTestCase", true, flag);
 	}
 
+	//@Test
+	//public void getuserdetails(){
+		//boolean flag = userDAO.getUser("niit") != null;
+	   //Assert.assertEquals("getuserdetails", true, flag);		
+	//}
 	
-	
-	
+	@Test
+	public void createCategoryTestCase() {
+		user.setId("niit");
+		user.setPassword("123");
+		user.setName("niit");
+		user.setMail("niit@gmail.com");
+		user.setContact("9999999999");
+		user.setRole("Role_Admin");
+
+		boolean flag = userDAO.save(user);
+
+		// compare what you are excepting VS what you are getting from save
+		// method
+
+		Assert.assertEquals("createCategoryTestCase", true, flag);
+
+	}
 	
 	
 	
