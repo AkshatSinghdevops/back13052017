@@ -25,6 +25,10 @@ public interface ProductDAO {
 	// delete category by category
 
 	public boolean delete(Product product);
+
+	public Product get(String id);
+
+	public boolean saveOrUpdate(Product product);
 	
 
 }

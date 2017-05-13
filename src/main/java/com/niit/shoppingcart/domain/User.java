@@ -1,5 +1,6 @@
 package com.niit.shoppingcart.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -15,7 +16,7 @@ public class User {
 	private String id;
 	
 	
-	
+	@Column
 	private String name;
 	
 	private String password;

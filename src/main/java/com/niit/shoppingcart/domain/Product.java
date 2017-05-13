@@ -2,9 +2,13 @@ package com.niit.shoppingcart.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name="Product")  //if the class name and table name is different
@@ -16,17 +20,34 @@ public class Product {
 	
 	private String name;
 	
-	private String  price;
+	private double price;
 	
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
 	private String  description;
 	
-	private String  stock;
+
 	
-	private String  Category_id;
+	private String  category_id;
 	
-	private String  Supplier_id;
+	private String  supplier_id;
 	
-	private String   img_url;
+	@Transient
+	private MultipartFile image;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "category_id", updatable = false, insertable = false, nullable = false)
+	private Category category;
+
+	@ManyToOne
+	@JoinColumn(name = "supplier_id", nullable = false, updatable = false, insertable = false)
+	private Supplier supplier;
+	
+	
+	
 
 	public String getId() {
 		return id;
@@ -44,13 +65,7 @@ public class Product {
 		this.name = name;
 	}
 
-	public String getPrice() {
-		return price;
-	}
-
-	public void setPrice(String price) {
-		this.price = price;
-	}
+	
 
 	public String getDescription() {
 		return description;
@@ -60,37 +75,48 @@ public class Product {
 		this.description = description;
 	}
 
-	public String getStock() {
-		return stock;
+	
+
+	public String getcategory_id() {
+		return category_id;
 	}
 
-	public void setStock(String stock) {
-		this.stock = stock;
+	public void setcategory_id(String category_id) {
+		category_id = category_id;
 	}
 
-	public String getCategory_id() {
-		return Category_id;
+	public String getsupplier_id() {
+		return supplier_id;
 	}
 
-	public void setCategory_id(String category_id) {
-		Category_id = category_id;
+	public void setsupplier_id(String supplier_id) {
+		supplier_id = supplier_id;
 	}
 
-	public String getSupplier_id() {
-		return Supplier_id;
+	public MultipartFile getImage() {
+		return image;
 	}
 
-	public void setSupplier_id(String supplier_id) {
-		Supplier_id = supplier_id;
+	public void setImage(MultipartFile image) {
+		this.image = image;
 	}
 
-	public String getImg_url() {
-		return img_url;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setImg_url(String img_url) {
-		this.img_url = img_url;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
+
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+
 	
 	
 	

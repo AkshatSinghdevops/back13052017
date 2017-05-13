@@ -104,4 +104,20 @@ public class CategoryDAOImpl  implements CategoryDAO{
 
 	}
 
+
+
+
+	public Category get(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+	public boolean saveOrUpdate(Category category) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

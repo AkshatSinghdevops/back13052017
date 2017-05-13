@@ -5,19 +5,21 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.shoppingcart.dao.CategoryDAO;
-import com.niit.shoppingcart.domain.Category;
+import com.niit.shoppingcart.dao.SupplierDAO;
+import com.niit.shoppingcart.domain.Supplier;
 
 import junit.framework.Assert;
 
+public class SupplierTaseCase {
 
-public class CategoryTestCase {
+	
+
+	
+	@Autowired
+	private static Supplier supplier;
 
 	@Autowired
-	private static Category category;
-
-	@Autowired
-	private static CategoryDAO categoryDAO;
+	private static SupplierDAO supplierDAO;
 
 	
 	@BeforeClass
@@ -26,26 +28,25 @@ public class CategoryTestCase {
 		context.scan("com.niit");
 		context.refresh();
 
-		category = (Category) context.getBean("category");
+		supplier = (Supplier) context.getBean("supplier");
 
-		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
+		supplierDAO =  (SupplierDAO) context.getBean("supplierDAO");
 
 	}
 
 	// TEST CASES
 
 	@Test
-	public void createCategoryTestCase() {
-		category.setid("02032017");
-		category.setName("Women Category");
-		category.setDescription("This is Women ");
+	public void createsupplierTestCase() {
+		supplier.setid("02");
+		supplier.setname("Akshat Thakur");
+		supplier.setaddress("Rewa , India");
 
-		boolean flag = categoryDAO.save(category);
+		boolean f = supplierDAO.save(supplier);
 
 		// compare what you are excepting VS what you are getting from save
 		// method
 
-		Assert.assertEquals("createCategoryTestCase", true, flag);
-
+		Assert.assertEquals("createsupplierTestCase", true, f);
 	}
 }

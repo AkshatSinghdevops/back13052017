@@ -37,4 +37,8 @@ public interface CategoryDAO {
 	// get category by name
 	public Category getCategoryByName(String name);
 
+	public Category get(String id);
+
+	public boolean saveOrUpdate(Category category);
+
 }

@@ -18,25 +18,25 @@ public class Category {
 		//generate getter/setter methods
 		
 		@Id
-		private String ID;
+		private String id;
 		
 		@Column(name="name")  //if the field name and property name is different
-		private String NAME;
+		private String Name;
 		
-		public String getID() {
-			return ID;
+		public String getid() {
+			return id;
 		}
 
-		public void setID(String iD) {
-			ID = iD;
+		public void setid(String Id) {
+			id = Id;
 		}
 
-		public String getNAME() {
-			return NAME;
+		public String getName() {
+			return Name;
 		}
 
-		public void setNAME(String nAME) {
-			NAME = nAME;
+		public void setName(String name) {
+			Name = name;
 		}
 
 		public String getDescription() {
@@ -48,6 +48,11 @@ public class Category {
 		}
 
 		private String Description;
+
+		public String getId() {
+			// TODO Auto-generated method stub
+			return null;
+		}
 
 	
 		

@@ -18,28 +18,33 @@ public class Supplier {
 	
 	private String address;
 
-	public String getId() {
+	public String getid() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setid(String id) {
 		this.id = id;
 	}
 
-	public String getName() {
+	public String getname() {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setname(String name) {
 		this.name = name;
 	}
 
-	public String getAddress() {
+	public String getaddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setaddress(String address) {
 		this.address = address;
+	}
+
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
